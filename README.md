@@ -1,8 +1,23 @@
 # Awsaml
-[![Build Status](https://api.travis-ci.org/rapid7/awsaml.svg?branch=master)](https://travis-ci.org/rapid7/awsaml) [![Coverage Status](https://coveralls.io/repos/github/rapid7/awsaml/badge.svg?branch=master)](https://coveralls.io/github/rapid7/awsaml?branch=master)
+[![Build Status](https://api.travis-ci.org/rapid7/awsaml.svg?branch=master)](https://travis-ci.org/rapid7/awsaml) [![Coverage Status](https://coveralls.io/repos/github/rapid7/awsaml/badge.svg?branch=master)](https://coveralls.io/github/rapid7/awsaml?
+branch=master)
 
 Awsaml is an application for providing automatically rotated temporary [AWS][]
-credentials. Credentials are stored in `~/.aws/credentials` so they can be used
+credentials.
+
+## Installation
+You can grab pre-built beta/release binaries for Mac, Linux, and Window from [the releases page][releases].
+Awsaml.
+
+**NOTE**: Back up your `~/.aws/credentials` file before using it, please.
+
+### macOS
+A caskfile is bundled with the repository to install Awsaml with [Homebrew][] simply run:
+
+`brew cask install https://raw.githubusercontent.com/rapid7/awsaml/master/brew/cask/awsaml.rb`
+
+## Credentials
+Credentials are stored in `~/.aws/credentials` so they can be used
 with AWS SDKs. Credentials are valid for one hour and are rotated every hour
 while the application's running.
 
@@ -16,10 +31,6 @@ In order to rotate credentials, Awsaml takes the following actions
 This flow repeats every hour so the user always has a valid set of AWS keys
 while the application's running. Awsaml reuses the SAML response from the
 identity provider, so the user doesn't need to reauthenticate every time.
-
-You can grab prebuilt binaries for Mac, Linux, and Window from [the releases page][releases].
-Awsaml is current pre-release software. Back up your `~/.aws/credentials` file
-before using it, please.
 
 ## Configuration
 Configuring Awsaml is a multi-step process that involves a bit of back and forth
@@ -206,11 +217,6 @@ npm run build
 ~~~
 
 Those commnds will create a "dist" folder with zipped binaries.
-
-## Setup on OSX with Homebrew
-A caskfile is bundled with the repository, to install Awsaml with [Homebrew][] simply run:
-
-`brew cask install https://raw.githubusercontent.com/rapid7/awsaml/master/brew/cask/awsaml.rb`
 
 ## License
 
